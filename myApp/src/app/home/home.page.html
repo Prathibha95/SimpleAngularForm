@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <!-- <ion-back-button defaultHref ="/home"></ion-back-button> -->
+    </ion-buttons>
+    <ion-title>Personal Infromation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <div class="container-fluid mb-5"> -->
+  <!-- <h2>Personal Infromation</h2> -->
+  
+
+ 
+    <ion-content [fullscreen]="true">
+      <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+      <ion-grid>
+        <ion-row>
+          <ion-col size-md="6" offset-md="3">
+            <div class="form-group">
+              <ion-item>
+                <ion-label color="secondary" position="floating">First Name</ion-label>
+                <ion-input type="text" required #fname="ngModel" [class.is-invalid]="fname.invalid" class="form-control"
+                  name="fname" [(ngModel)]=userModel.fname></ion-input>
+                <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is Required</small>
+              </ion-item>
+    
+            </div>
+    
+            <div class="form-group">
+              <ion-item>
+                <ion-label color="secondary" position="floating">Last Name</ion-label>
+                <ion-input type="text" required #lname="ngModel" [class.is-invalid]="lname.invalid" class="form-control"
+                  name="lname" [(ngModel)]=userModel.lname></ion-input>
+                <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last Name is Required</small>
+              </ion-item>
+    
+            </div>
+    
+            <div class="form-group">
+              <ion-item>
+                <ion-label color="secondary" position="floating">Address</ion-label>
+                <ion-input type="text" required #address="ngModel" [class.is-invalid]="address.invalid" class="form-control"
+                  name="address" [(ngModel)]=userModel.address></ion-input>
+                <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is Required</small>
+              </ion-item>
+    
+            </div>
+            <div class="form-group">
+              <ion-item>
+                <ion-label color="secondary" position="floating">Telephone Number</ion-label>
+                <ion-input type="tel" required #phone="ngModel" pattern="^\d{10}$" [class.is-invalid]="phone.invalid"
+                  class="form-control" name="phone" [(ngModel)]=userModel.phone></ion-input>
+                <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Telephone Number is Required and
+                  should be 10 digits</small>
+              </ion-item>
+    
+            </div>
+            <div class="form-group">
+              <ion-item>
+                <ion-label color="secondary" position="floating">Email</ion-label>
+                <ion-input type="email" required #email="ngModel" [class.is-invalid]="email.invalid" class="form-control"
+                  name="email" [(ngModel)]=userModel.email></ion-input>
+                <div></div>
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email address is Required</small>
+              </ion-item>
+    
+            </div>
+    
+    
+            <ion-button [disabled]="userForm.form.invalid" expand="block" class="btn btn-primary" type="submit">Submit
+              Details</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    </ion-content>
+
+ 
+<!-- </div> -->
